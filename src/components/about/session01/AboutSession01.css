@@ -1,0 +1,180 @@
+.about-session01 {
+    position: relative;
+    text-align: center;
+    padding: 30px 10px;
+    background-color: #001f3f;
+    color: white;
+    height: 750px;
+  }
+  
+  .about-carousel-button {
+    background-color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #00194f;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 15%;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+  
+  .about-carousel-button.left {
+    left: 20%;
+  }
+  
+  .about-carousel-button.right {
+    right: 20%;
+  }
+  
+  .timeline {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+    margin: 0 auto;
+    max-width: 85%;
+  }
+  
+  .timeline-item {
+    flex: 0 0 260px;
+    opacity: 0.3;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: left;
+    scroll-snap-align: center;
+  }
+  
+  .timeline-item.active {
+    opacity: 1;
+    flex: 0 0 300px;
+  }
+  
+  .timeline-item.nearby {
+    opacity: 1;
+  }
+  
+  .timeline-item.hidden {
+    display: none;
+    transform: scale(1);
+  }
+
+  .timeline-item h2 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #d4af37;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+
+  .timeline-item p {
+    font-size: 0.9rem;
+    color: white;
+    line-height: 1.5;
+  }
+  
+  .bitcoin {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 280px;
+  }
+  
+  
+  .risquinhos-container {
+    width: 100%;
+    position: absolute;
+    bottom: 110px;
+  }
+  
+  
+  .risquinhos-container img {
+    width: 100%;
+    height: 40px;
+  }
+
+  @media (max-width: 1550px) {
+    .about-carousel-button.left {
+      left: 40px;
+    }
+    
+    .about-carousel-button.right {
+      right: 40px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+     .timeline {
+      width: 100%;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+
+    .timeline::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .timeline:focus,
+    .timeline:hover {
+      scrollbar-width: thin;
+    }
+
+    .timeline:hover::-webkit-scrollbar {
+      display: block;
+    }
+    
+    .timeline:hover::-webkit-scrollbar-thumb {
+      background-color: #d4af37;
+      border-radius: 10px;
+    }
+    
+    .timeline:hover::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    .timeline-item {
+      text-align: center;
+    }
+
+    .timeline-item p {
+      text-align: left;
+    }
+
+    .about-carousel-button.left {
+      left: 30px;
+    }
+    
+    .about-carousel-button.right {
+      right: 30px;
+    } 
+  }
+
+  @media (max-width: 500px) {
+    .timeline {
+      width: 90%;
+    }
+
+    .about-carousel-button {
+      top: 7%;
+    }
+
+    .timeline-item {
+      flex: 0 0 230px;
+      text-align: center;
+    }
+
+    .bitcoin {
+      width: 200px;
+      bottom: 35px;
+    }
+  }
+  

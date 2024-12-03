@@ -1,0 +1,112 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 60px;
+  background-color: #001f3f;
+  z-index: 1000;
+  text-align: center;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  gap: 5rem;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.nav ul li a:hover {
+  color: #d4af37;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn.register {
+  background-color: #d4af37;
+  color: #fff;
+}
+
+.btn.login {
+  background-color: #d4af37;
+  color: #fff;
+}
+
+@media (max-width: 1000px) {
+  .header {
+    height: 100px;
+    flex-wrap: wrap;
+  }
+
+  .header .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    padding: 1rem 0;
+  }
+
+  .nav ul {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    height: 150px;
+    display: flex;
+    text-align: center;
+  }
+
+  .header .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+  }
+}

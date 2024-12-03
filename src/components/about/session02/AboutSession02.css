@@ -1,0 +1,173 @@
+.about-sessions-container {
+  background: url('/src/assets/images/about/background.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 40px 20px;
+}
+
+  
+.about-session02 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px;
+}
+    
+.about-container-principal {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+      
+.about-right-content {
+  text-align: left;
+  width: 40%;
+}
+          
+.about-description {
+  color: #002a5b;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.about-left-content {
+  text-align: right;
+  color: rgb(205, 175, 2);
+  width: 23%;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+            
+.about-linha-detalhe {
+  align-self: end;
+  width: 120px;
+  height: 14px;
+  background-color: #002a5b;
+  margin-bottom: 20px;
+}
+
+ 
+.about-session03 {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.bull-logo {
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+
+.about-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-card {
+    background-color: #002a5b;
+    border-radius: 15px;
+    padding: 20px 40px;
+    width: 100%;
+    max-width: 850px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    color: #fff;
+  }
+
+.about-card h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.about-card .underline {
+  width: 150px;
+  height: 3px;
+  background-color: #d4af37;
+  margin-bottom: 20px;
+}
+
+.about-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.etherium {
+  position: absolute;
+  top: -130px;
+  right: 20%;
+  transform: translateX(50%);
+  width: 300px;
+  z-index: 1;
+}
+
+@media (max-width: 1200px) {
+  .about-container-principal {
+    width: 80%;
+    gap: 40px;
+  }
+
+  .etherium {
+    width: 250px;
+    right: 15%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .about-container-principal {
+    width: 100%;
+    gap: 40px;
+  }
+
+  .etherium {
+    width: 250px;
+    right: 10%;
+  }
+}
+
+@media (max-width: 850px) {
+  .about-left-content {
+    width: 60%;
+  }
+
+  .etherium {
+    display: none;
+  }
+
+}
+
+@media (max-width: 700px) {
+  .about-container-principal {
+    flex-direction: column;
+  }
+
+  .about-right-content {
+    text-align: center;
+    width: 80%;
+  }
+
+  .about-left-content {
+    text-align: center;
+    width: 100%;
+    margin-right: 0px;
+  }
+              
+  .about-linha-detalhe {
+    align-self: center;
+    height: 8px;
+  }
+
+  .about-linha-detalhe {
+    width: 90%;
+  }
+}
