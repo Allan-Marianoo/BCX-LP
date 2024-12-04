@@ -26,7 +26,7 @@ const CryptoTicker = () => {
 
     fetchPrices();
 
-    const interval = setInterval(fetchPrices, 60000);
+    const interval = setInterval(fetchPrices, 900000);
     return () => clearInterval(interval);
   }, );
 

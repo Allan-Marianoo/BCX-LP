@@ -6,24 +6,16 @@ const HomeSession03 = () => {
 
   const testimonials = [
     {
-      name: 'XXXX XXXX',
-      text: 'A BCX oferece opções para cada tipo de perfil. Empresa sólida e comprometida com o cliente, sempre disposta a ajudar e negociar da melhor maneira. Seguro, transparente e de alto desempenho.',
+      image: '/src/assets/images/feedback-clients/IMG_7215.PNG',
     },
     {
-      name: 'RENATO ESQUIBEL',
-      text: 'Durante 05 anos de investimentos com a BCX, todos os planejamentos pessoais foram concretizados após a análise de melhores perfis de investimentos ao cliente, com os melhores cenários de mercados e estratégias.',
+      image: '/src/assets/images/feedback-clients/IMG_7217.PNG',
     },
     {
-      name: 'XXXXXXX XXXXXXX',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus quam sem, vel lacinia arcu interdum in.',
+      image: '/src/assets/images/feedback-clients/IMG_7218.PNG',
     },
     {
-      name: 'MARIA DA SILVA',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus quam sem, vel lacinia arcu interdum in.',
-    },
-    {
-      name: 'JOÃO CARLOS',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus quam sem, vel lacinia arcu interdum in.',
+      image: '/src/assets/images/feedback-clients/IMG_7219.PNG',
     },
   ];
 
@@ -52,12 +44,11 @@ const HomeSession03 = () => {
               .slice(currentIndex, currentIndex + 3)
               .map((testimonial, index) => (
                 <div className="testimonial-card" key={index}>
-                  <div className="card-header">
-                    <div className="testimonial-avatar"></div>
-                    <h4>{testimonial.name}</h4>
-                    <div className="highlight"></div>
-                  </div>
-                  <p>{testimonial.text}</p>
+                  <img
+                    src={testimonial.image}
+                    alt={`Feedback ${index + 1}`}
+                    className="testimonial-image"
+                  />
                 </div>
               ))}
           </div>
@@ -67,7 +58,7 @@ const HomeSession03 = () => {
         </div>
       </div>
     </section>
-  );  
+  );
 };
 
 export default HomeSession03;
