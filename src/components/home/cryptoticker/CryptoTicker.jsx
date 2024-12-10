@@ -10,25 +10,27 @@ const CryptoTicker = () => {
   ];
 
   useEffect(() => {
-    const fetchPrices = async () => {
-      try {
-        const responses = await Promise.all(
-          symbols.map(({ symbol }) =>
-            fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${symbol}`)
-          )
-        );
-        const data = await Promise.all(responses.map((response) => response.json()));
-        setPrices(data);
-      } catch (error) {
-        console.error("Erro ao buscar preços das criptomoedas:", error);
-      }
-    };
+  const fetchPrices = async () => {
+    try {
+      const responses = await Promise.all(
+        symbols.map(({ symbol }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/ticker/24hr?symbol=${symbol}`)
+        )
+      );
+      const data = await Promise.all(responses.map((response) => response.json()));
+      setPrices(data);
+    } catch (error) {
+      console.error("Erro ao buscar preços das criptomoedas:", error);
+    }
+  };
 
-    fetchPrices();
+  fetchPrices();
 
-    const interval = setInterval(fetchPrices, 900000);
-    return () => clearInterval(interval);
-  }, );
+  const interval = setInterval(fetchPrices, 900000);
+  return () => clearInterval(interval);
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
 
   return (
     <div className="crypto-ticker">
