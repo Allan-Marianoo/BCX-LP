@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import Feedback1 from '../../../assets/images/feedback-clients/feedback1.png';
+import Feedback2 from '../../../assets/images/feedback-clients/feedback2.png';
+import Feedback3 from '../../../assets/images/feedback-clients/feedback3.png';
+import Feedback4 from '../../../assets/images/feedback-clients/feedback4.png';
 import './HomeSession03.css';
 
 const HomeSession03 = () => {
@@ -6,16 +10,16 @@ const HomeSession03 = () => {
 
   const testimonials = [
     {
-      image: '/src/assets/images/feedback-clients/IMG_7215.PNG',
+      image: Feedback1,
     },
     {
-      image: '/src/assets/images/feedback-clients/IMG_7217.PNG',
+      image: Feedback2,
     },
     {
-      image: '/src/assets/images/feedback-clients/IMG_7218.PNG',
+      image: Feedback3,
     },
     {
-      image: '/src/assets/images/feedback-clients/IMG_7219.PNG',
+      image: Feedback4,
     },
   ];
 

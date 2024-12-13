@@ -42,10 +42,13 @@ const CryptoTicker = () => {
         return (
           <div className="crypto-item" key={index}>
             <img
-              src={`/src/assets/icons/${icon}`}
+              src={new URL(`../../../assets/icons/coins/${icon}`, import.meta.url).href}
               alt={name}
               className="crypto-icon"
             />
+
+
+
             <div className="crypto-info">
               <span className="crypto-name">
                 {name} <span className="crypto-abbreviation">({abbreviation})</span>
