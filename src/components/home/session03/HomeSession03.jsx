@@ -1,37 +1,39 @@
-import { useState } from 'react';
-import Feedback1 from '../../../assets/images/feedback-clients/feedback1.png';
-import Feedback2 from '../../../assets/images/feedback-clients/feedback2.png';
-import Feedback3 from '../../../assets/images/feedback-clients/feedback3.png';
-import Feedback4 from '../../../assets/images/feedback-clients/feedback4.png';
-import './HomeSession03.css';
+import { useState, useEffect } from "react";
+import Feedback1 from "../../../assets/images/feedback-clients/feedback1.png";
+import Feedback2 from "../../../assets/images/feedback-clients/feedback2.png";
+import Feedback3 from "../../../assets/images/feedback-clients/feedback3.png";
+import Feedback4 from "../../../assets/images/feedback-clients/feedback4.png";
+import "./HomeSession03.css";
 
 const HomeSession03 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
 
   const testimonials = [
-    {
-      image: Feedback1,
-    },
-    {
-      image: Feedback2,
-    },
-    {
-      image: Feedback3,
-    },
-    {
-      image: Feedback4,
-    },
+    { image: Feedback1 },
+    { image: Feedback2 },
+    { image: Feedback3 },
+    { image: Feedback4 },
   ];
+
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      setItemsPerPage(window.innerWidth < 768 ? 1 : 3);
+    };
+    window.addEventListener("resize", updateItemsPerPage);
+    updateItemsPerPage();
+    return () => window.removeEventListener("resize", updateItemsPerPage);
+  }, []);
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 3 : prevIndex - 1
+      prevIndex === 0 ? testimonials.length - itemsPerPage : prevIndex - 1
     );
   };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex + 3 >= testimonials.length ? 0 : prevIndex + 1
+      prevIndex + itemsPerPage >= testimonials.length ? 0 : prevIndex + 1
     );
   };
 
@@ -45,7 +47,7 @@ const HomeSession03 = () => {
           </button>
           <div className="testimonial-cards">
             {testimonials
-              .slice(currentIndex, currentIndex + 3)
+              .slice(currentIndex, currentIndex + itemsPerPage)
               .map((testimonial, index) => (
                 <div className="testimonial-card" key={index}>
                   <img
