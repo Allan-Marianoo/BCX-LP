@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Faq.css";
 
 const Faq = () => {
@@ -31,47 +31,83 @@ const Faq = () => {
       id: 5,
       question: "O que é KYC (Know your customer)?",
       answer:
-        "É o documento que exige que os provedores de serviços financeiros registrem informações e identifiquem seus clientes, sob lei 9.613/98, que dispõe sobre a prevenção da utilização do sistema financeiro para fins ilícitos, mais especificamente em seu Art. 10º; bem como também há regulamentação pelo Normativo SARB 011/2013 da Federação Brasileira de Bancos (Febraban) - PEP (Pessoa Politicamente Exposta);",
+        "É o documento que exige que os provedores de serviços financeiros registrem informações e identifiquem seus clientes, sob lei 9.613/98, que dispõe sobre a prevenção da utilização do sistema financeiro para fins ilícitos.",
     },
   ];
 
   const [selectedFaq, setSelectedFaq] = useState(faqData[0]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 800);
+    };
+
+    window.addEventListener("resize", checkScreenSize);
+    checkScreenSize();
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  const handleClick = (item) => {
+    if (isMobile) {
+      setSelectedFaq(selectedFaq?.id === item.id ? null : item);
+    } else {
+      setSelectedFaq(item);
+    }
+  };
 
   return (
     <div className="faq-page">
-  <div className="faq-header">
-    <div className="faq-header-bar"></div>
-    <h2 className="faq-header-title">Ainda com Dúvidas?</h2>
-  </div>
-  <div className="faq">
-    <div className="faq-left">
-      <ul className="faq-list">
-        {faqData.map((item) => (
-          <li
-            key={item.id}
-            className={`faq-item ${
-              selectedFaq.id === item.id ? "selected" : ""
-            }`}
-            onClick={() => setSelectedFaq(item)}
-          >
-            <span>{item.question}</span>
-            <span className="faq-arrow" onClick={() => setSelectedFaq(item)}>
-              {selectedFaq.id === item.id ? (
-                  <i className="fa-solid fa-chevron-right"></i>
-                ) : (
-                  <i className="fa-solid fa-chevron-down"></i>
-              )}
-            </span>
-          </li>
-        ))}
-      </ul>
+      <div className="faq-header">
+        <div className="faq-header-bar"></div>
+        <h2 className="faq-header-title">Ainda com Dúvidas?</h2>
+      </div>
+      <div className="faq">
+        <div className="faq-left">
+          <ul className="faq-list">
+            {faqData.map((item) => (
+              <li
+                key={item.id}
+                className={`faq-item ${
+                  selectedFaq?.id === item.id ? "selected" : ""
+                }`}
+                onClick={() => handleClick(item)}
+              >
+                <div className="faq-question">
+                  <span>{item.question}</span>
+                  <span className="faq-arrow">
+                    {selectedFaq?.id === item.id ? (
+                      <i
+                        className={`fa-solid ${
+                          isMobile ? "fa-chevron-down" : "fa-chevron-right"
+                        }`}
+                      ></i>
+                    ) : (
+                      <i
+                        className={`fa-solid ${
+                          isMobile ? "fa-chevron-right" : "fa-chevron-down"
+                        }`}
+                      ></i>
+                    )}
+                  </span>
+                </div>
+                {isMobile && selectedFaq?.id === item.id && (
+                  <div className="faq-answer-mobile">
+                    <p>{item.answer}</p>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        {!isMobile && selectedFaq && (
+          <div className="faq-right">
+            <p>{selectedFaq.answer}</p>
+          </div>
+        )}
+      </div>
     </div>
-    <div className="faq-right">
-      <p>{selectedFaq.answer}</p>
-    </div>
-  </div>
-</div>
-
   );
 };
 
