@@ -7,7 +7,7 @@ import './Home.css';
 
 const Home = () => {
   return (
-    <div className="home">
+    <div className="home" style={{ overflow: "hidden" }}>
       <Banner />
       <CryptoTicker />
       <HomeSession01 />
