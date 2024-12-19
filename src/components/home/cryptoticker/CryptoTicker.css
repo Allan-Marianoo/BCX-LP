@@ -1,14 +1,21 @@
-
 .crypto-ticker {
   display: flex;
-  width: 100%;
-  justify-content: space-around;
-  overflow-x: auto;
+  overflow: hidden;
+  white-space: nowrap;
   padding: 0 2rem;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.crypto-ticker-content {
+  display: inline-flex;
+  animation: ticker-move 110s linear infinite;
+  white-space: nowrap;
 }
 
 .crypto-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 1rem;
   padding: 0.5rem 1rem;
@@ -38,7 +45,6 @@
   font-size: 0.8rem;
 }
 
-
 .crypto-price {
   font-size: 1rem;
   font-weight: bold;
@@ -55,6 +61,15 @@
 
 .crypto-change.negative {
   color: #dc3545;
+}
+
+@keyframes ticker-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @media (max-width: 900px) {
@@ -86,23 +101,26 @@
 
 @media (max-width: 550px) {
   .crypto-ticker {
-    margin-top: 70px;
+    height: 40px;
+    padding-top: 0.2rem;
   }
 
-  .crypto-name {
-    display: none;
+  .crypto-item {
+    min-width: 120px;
+    gap: 0.2rem;
+    padding: 0.2rem 0.3rem;
   }
 
   .crypto-icon {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
   }
 
   .crypto-price {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 
   .crypto-change {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 }
