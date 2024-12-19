@@ -4,7 +4,7 @@ import risquinhos from "../../../assets/images/about/tracejado.png";
 import './AboutSession01.css';
 
 const AboutSession01 = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(5);
 
   const items = [
     {
@@ -69,41 +69,44 @@ const AboutSession01 = () => {
     );
   };
   
+  const calculateDistance = (index, currentIndex, length) => {
+    const forwardDistance = Math.abs(index - currentIndex);
+    const backwardDistance = length - forwardDistance;
+    return Math.min(forwardDistance, backwardDistance);
+  };
 
   return (
     <section className="about-session01">
-      <div className="about-content-container">
         <button className="about-carousel-button left" onClick={handlePrev}>
           &#8249;
         </button>
 
         <div className="timeline">
-         {items.map((item, index) => {
-         const distance = Math.abs(index - currentIndex);
-          let className = "timeline-item hidden";
+          {items.map((item, index) => {
+            const dist = calculateDistance(index, currentIndex, items.length);
+            let className = "timeline-item hidden";
 
-        if (distance === 0) {
-          className = "timeline-item active";
-        } else if (distance === 1) {
-          className = "timeline-item nearby";
-        } else if (distance === 2) {
-          className = "timeline-item partly-visible";
-        }
+            if (dist === 0) {
+              className = "timeline-item active";
+            } else if (dist === 1) {
+              className = "timeline-item nearby";
+            } else if (dist === 2) {
+              className = "timeline-item partly-visible";
+            }
 
-    return (
-      <div className={className} key={index}>
-        <h2>{item.year}</h2>
-        <p>{item.content}</p>
-      </div>
-    );
-  })}
-</div>
+            return (
+              <div className={className} key={index}>
+                <h2>{item.year}</h2>
+                <p>{item.content}</p>
+              </div>
+            );
+          })}
+        </div>
 
         <button className="about-carousel-button right" onClick={handleNext}>
           &#8250;
         </button>
-      </div>
-        <img src={bitcoin} alt="Moeda" className="bitcoin" />
+      <img src={bitcoin} alt="Moeda" className="bitcoin" />
       <div className="risquinhos-container">
         <img src={risquinhos} alt="Risquinhos verticais" />
       </div>
