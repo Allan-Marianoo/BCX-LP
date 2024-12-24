@@ -1,6 +1,6 @@
 import './Banner.css';
 import bannerImage from '../../../assets/images/banner-home/Banner.png';
-import logo from '../../../assets/images/banner-home/Logo.png';
+import logo from '../../../assets/images/banner-home/LOGOBCX.png';
 
 const Banner = () => {
   return (

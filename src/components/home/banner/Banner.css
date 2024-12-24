@@ -22,8 +22,7 @@
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 13%;
-  max-width: 200px;
+  max-width: 250px;
   height: auto;
   z-index: 1;
 }
@@ -53,6 +52,10 @@
   min-width: 200px;
 }
 
+.crypto-info {
+  margin-top: 0;
+}
+
 @keyframes ticker-move {
   0% {
     transform: translateX(0);
@@ -62,7 +65,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .banner-container {
     margin-top: 1rem;
     height: 50vh;
@@ -87,10 +90,8 @@
 
   .banner-logo {
     left: 52%;
-    width: 10%;
+    top: 45%;
+    width: 14%;
   }
 }
 
-.crypto-info {
-  margin-top: 0;
-}
